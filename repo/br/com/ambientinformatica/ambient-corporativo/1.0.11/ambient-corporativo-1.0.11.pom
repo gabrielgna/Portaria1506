@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.ambientinformatica</groupId>
+	<artifactId>ambient-corporativo</artifactId>
+	<name>ambient-corporativo</name>
+	<version>1.0.11</version>
+	<description />
+	<dependencies>
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency> 
+			<groupId>br.com.ambientinformatica</groupId>
+			<artifactId>utilAmbient</artifactId>
+			<version>1.0.6</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal Snapshots</name>
+			<url>http://localhost:8080/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>releases</id>
+			<name>Internal Releases</name>
+			<url>http://localhost:8080/nexus/content/repositories/releases-publicas</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<scm>
+		<connection>scm:svn:http://a4t.in/svn/util/tags/ambient-corporativo-1.0.11</connection>
+		<developerConnection>scm:svn:http://a4t.in/svn/util/tags/ambient-corporativo-1.0.11</developerConnection>
+	</scm>
+
+</project>
