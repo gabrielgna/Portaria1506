@@ -16,6 +16,15 @@
 		<webapp-runner.version>9.0.13.0</webapp-runner.version>
 	</properties>
 
+	<repositories>
+		<!--other repositories if any-->
+		<repository>
+			<id>project.local</id>
+			<name>project</name>
+			<url>file:${project.basedir}/repo</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
