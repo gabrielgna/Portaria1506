@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Relatório Entrada/Saída</title>
+	<link href="css/cadAreaLazerestilo.css" rel="stylesheet" />
+</h:head>
+<h:body style="padding-top: 60px">
+
+	<nav id="j_idt7" class="navbar navbar-inverse navbar-fixed-top"
+		role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#j_idt7_inner">
+					<span class="sr-only">Toggle navigation</span><span
+						class="icon-bar"></span><span class="icon-bar"></span><span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span>Condominium Controller</span></a>
+			</div>
+			<div id="j_idt7_inner"
+				class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul id="j_idt8" class="nav navbar-nav navbar-right ">
+					<li id="j_idt9" style="cursor: pointer;"><a href="#"
+						role="menuitem" tabindex="0">Dashboard</a></li>
+					<li id="j_idt10" style="cursor: pointer;"><a href="#"
+						role="menuitem" tabindex="0">Settings</a></li>
+					<li id="j_idt11" style="cursor: pointer;"><a href="#"
+						role="menuitem" tabindex="0">Profile</a></li>
+					<li id="j_idt12" style="cursor: pointer;"><a href="#"
+						role="menuitem" tabindex="0">Help</a></li>
+				</ul>
+				<form id="j_idt13" name="j_idt13" method="post"
+					action="/Examples/dashboard.jsf" class="navbar-form navbar-right"
+					enctype="application/x-www-form-urlencoded">
+
+
+					<div class="form-group">
+						<div id="j_idt13:j_idt15" class="form-group "></div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</nav>
+
+
+	<div id="j_idt17" class="container-fluid">
+		<div id="j_idt18" class="row">
+			<div id="MENU LATERAL ESQUERDO" style="background-color: #222222"
+				class="sidebar col-md-2 col-sm-3 ">
+				<ul id="MENU DE BOTOES ESQUERDO" class="nav nav-list ">
+					<li id="j_idt30" class="dropdown-header" role="presentation"><b:navLink
+							href="TelaInicial.xhtml" icon="home" icon-size="4x">
+						</b:navLink></li>
+
+					<li id="j_idt21" class="dropdown-header" role="presentation">
+						<H2>Cadastro</H2>
+					</li>
+					<li id="j_idt22" class="active" style="cursor: pointer;"><b:dropMenu
+							value="Pessoas">
+      <b:navLink value="Morador" href="#"></b:navLink>
+      <b:navLink value="Associado" href="#"></b:navLink>
+      <b:navLink value="Prestador de Serviço" href="#"></b:navLink>
+    </b:dropMenu></li>
+					
+					<li id="j_idt23" style="cursor: pointer;"><a href="cadImovel.xhtml"
+						role="menuitem" tabindex="0">Imovel</a></li>
+					<li id="j_idt24" style="cursor: pointer;"><a href="Arealazer.xhtml"
+						role="menuitem" tabindex="0">Area de Lazer</a></li>
+					<li id="j_idt25" style="cursor: pointer;"><a href="cadEmpresa.xhtml"
+						role="menuitem" tabindex="0">Empresa Prestadora</a></li>
+					<li id="j_idt26" class="dropdown-header" role="presentation">
+						<H2>Relatorios</H2>
+					</li>
+					<li id="j_idt27" style="cursor: pointer;"><a href="#"
+						role="menuitem" tabindex="0">Entrada/Saida</a></li>
+					<li id="j_idt28" style="cursor: pointer;"><a href="#"
+						role="menuitem" tabindex="0">Imovel</a></li>
+					<li id="j_idt29" style="cursor: pointer;"><a href="#"
+						role="menuitem" tabindex="0">Area de Lazer</a></li>
+				</ul>
+			</div>
+
+			<div id="j_idt36"
+				class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
+				<b:row styleClass="show-grid">
+					<b:column col-xs="4" col-sm="4" col-md="4"></b:column>
+					<b:column col-xs="4" col-sm="4" col-md="4">
+						<h1>Relatório Entrada/Saída</h1>
+					</b:column>
+				</b:row>
+				
+				<b:form id="formulario">
+					<h:form>
+						<b:dataTable value="#{AreaDeLazerControl.areasdelazer}" var="car" print="true"
+               row-style-class="">
+							<b:dataTableColumn value="#{car.nome}" label="Código Morador" />
+							<b:dataTableColumn value="#{car.local}" label="Código Imovel"/>
+							<b:dataTableColumn value="#{car.local}" label="Horário"/>
+							<b:dataTableColumn value="#{car.local}" label="Movimentação"/>
+						</b:dataTable>
+					</h:form>
+
+				</b:form>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		src="/Examples/javax.faces.resource/js/collapse.js.jsf?ln=bsf"></script>
+
+</h:body>
+</html>

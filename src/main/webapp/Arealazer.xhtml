@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<title>Listagem Area de Lazer</title>
+<ui:composition template="templateMain.xhtml">
+<ui:define name="conteudo">
+	<div id="FORMATACAO BOOTSFACE"
+		 class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
+		<b:row styleClass="show-grid">
+			<b:column col-xs="4" col-sm="4" col-md="4"></b:column>
+			<b:column col-xs="4" col-sm="4" col-md="4">
+				<h1>Area Lazer</h1>
+			</b:column>
+		</b:row>
+		<div id="LINHA DOS BUTONS" class="row placeholders">
+
+			<div id="j_idt39" class="placeholder col-xs-6 col-sm-6 ">
+				<b:button id="salv" value="Cadastro" href="cadAreaLazer.xhtml" />
+			</div>
+			<div id="j_idt41" class="placeholder col-xs-6 col-sm-3 ">
+				<b:button id="listAreaLazer" value="Listar Areas de Lazer"
+						  href="Arealazer.xhtml" />
+			</div>
+
+		</div>
+
+
+			<h:form id="formulario">
+				<b:dataTable value="#{AreaDeLazerControl.areasdelazer}" var="car" print="true"
+							 row-style-class="">
+					<b:dataTableColumn value="#{car.nome}" />
+					<b:dataTableColumn value="#{car.local}" />
+					<b:dataTableColumn value="" label="Ações">
+
+						<b:commandButton value="" icon="edit"  update=""
+										 onclick="" style="height:30px" title="Editar cadastro">
+						</b:commandButton>
+						<b:commandButton value="" icon="trash"  update=""
+										 onclick="" look="danger"  style="height:30px" title="Excluir cadastro">
+						</b:commandButton>
+					</b:dataTableColumn>
+
+				</b:dataTable>
+			</h:form>
+
+	</div>
+</ui:define>
+</ui:composition>
+</html>

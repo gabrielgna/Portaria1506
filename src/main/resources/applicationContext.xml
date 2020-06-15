@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
+            http://www.springframework.org/schema/tx  
+            http://www.springframework.org/schema/tx/spring-tx-3.2.xsd  
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd  
+            http://www.springframework.org/schema/context  
+            http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+	<context:property-placeholder location="classpath:application.properties" />
+	<context:component-scan base-package="br.com.senai.fatesg.primefaces" />
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<aop:aspectj-autoproxy />
+	<bean id="lazyInitialization" class="br.com.ambientinformatica.jpa.annotation.LazyInitializationReconnectAscpect" />
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="${persistenceUnit}" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="databasePlatform" value="${database.dialect}" />
+				<property name="showSql" value="${database.showSql}" />
+				<property name="generateDdl" value="${database.generateDdl}" />
+			</bean>
+		</property>
+	</bean>
+
+
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+	    <property name="driverClassName" value="org.postgresql.Driver"/>
+		<property name="url" value="jdbc:postgresql://ec2-34-197-141-7.compute-1.amazonaws.com:5432/d9b9daibhs8m4p"/>
+		<property name="username" value="whjsnoxqvwbdec"/>
+		<property name="password" value="16bdde2c6c7da3beca9cea3b2fe8ad8b596c182d152cee8bc577cbb8beec8608"/>
+	</bean>
+
+	<!--
+        <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+            <property name="jndiName">
+                <value>${jndi-datasource}</value>
+            </property>
+        </bean>
+ -->
+        <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+            <property name="entityManagerFactory" ref="entityManagerFactory"></property>
+        </bean>
+
+        <bean
+            class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+        <bean id="openEntityManagerInViewPhaseListener"
+            class="br.com.ambientinformatica.ambientjsf.controle.OpenEntityManagerInViewPhaseListener">
+            <property name="entityManagerFactoryBeanName" value="entityManagerFactory" />
+            <property name="transactionManagerBeanName" value="transactionManager" />
+        </bean>
+
+        <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+            <property name="scopes">
+                <map>
+                    <entry key="conversation">
+                        <bean
+                            class="br.com.ambientinformatica.ambientjsf.controle.ConversationScope" />
+                    </entry>
+                </map>
+            </property>
+        </bean>
+
+        <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+            <property name="scopes">
+                <map>
+                    <entry key="application">
+                        <bean
+                            class="br.com.ambientinformatica.ambientjsf.controle.ApplicationScope" />
+                    </entry>
+                </map>
+            </property>
+        </bean>
+
+
+    </beans>

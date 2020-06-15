@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<title>Cadastro Pessoas</title>
+<ui:composition template="templateMain.xhtml">
+    <ui:define name="conteudo">
+
+        <div id="GRID" class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
+            <b:row styleClass="show-grid">
+                <b:column col-xs="4" col-sm="4" col-md="4"/>
+                <b:column col-xs="4" col-sm="4" col-md="4">
+                    <h1>Pessoa Morador</h1>
+                </b:column>
+            </b:row>
+            <div id="LINHA DOS BOTOES" class="row placeholders">
+
+                <div id="BOTAO CADASTRO" class="placeholder col-xs-6 col-sm-6 ">
+                    <b:button value="Cadastro" href="cadCadastrados.xhtml"/>
+                </div>
+                <div id="BOTAO LISTAR CADASTRADOS" class="placeholder col-xs-6 col-sm-3 ">
+                    <b:button value="Listar Cadastrados" href="Cadastrados.xhtml"/>
+                </div>
+            </div>
+
+            <b:form id="formulario"
+                    class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 "
+                    horizontal="true">
+
+                <h:outputText value="Nome"></h:outputText>
+                <b:inputText large-screen="one-third"
+                             value="#{VisitanteControl.visitante.nome}"/>
+
+                <h:outputText value="RG"></h:outputText>
+                <b:inputText large-screen="two-thirds"
+                             value="#{VisitanteControl.visitante.RG }"/>
+
+                <b:commandButton value="Confirmar" update="formulario"
+                                 process="formulario"
+                                 actionListener="#{VisitanteControl.salvar}" look="success"/>
+
+            </b:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<title>Cadastro Imovel</title>
+<ui:composition template="templateMain.xhtml">
+    <ui:define name="conteudo">
+        <div id="GRID PRINCIPAL" class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
+
+            <b:row styleClass="show-grid">
+                <b:column col-xs="4" col-sm="4" col-md="4"></b:column>
+                <b:column col-xs="4" col-sm="4" col-md="4">
+                    <h1>Lista Imovel</h1>
+                </b:column>
+            </b:row>
+
+
+            <div id="btn_cadImovel" class="placeholder col-xs-6 col-sm-6 ">
+                <b:button value="Cadastro" href="cadImovel.xhtml"/>
+            </div>
+            <div id="tn_" class="placeholder col-xs-6 col-sm-3 ">
+                <b:button value="Listar Imoveis"
+                          href="Imovel.xhtml"/>
+            </div>
+
+            <b:form id="formulario">
+
+                <b:dataTable value="#{ImovelControl.imoveis}" var="car">
+                    <b:dataTableColumn value="#{car.bloco}"/>
+                    <b:dataTableColumn value="#{car.numero}"/>
+                    <b:dataTableColumn value="#{car.tamanholote}"/>
+                </b:dataTable>
+            </b:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

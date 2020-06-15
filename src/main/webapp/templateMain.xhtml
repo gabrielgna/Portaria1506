@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+    <link href="css/cadAreaLazerestilo.css" rel="stylesheet" />
+
+    <h:form id="fcabecalho" style="padding-top: 60px">
+        <ui:insert name="cabecalho">
+
+            <nav id="j_idt7" class="navbar navbar-inverse navbar-fixed-top"
+                 role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#j_idt7_inner">
+                            <span class="sr-only">Toggle navigation</span><span
+                                class="icon-bar"></span><span class="icon-bar"></span><span
+                                class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><span>Portaria Gestion</span></a>
+                    </div>
+                    <div id="j_idt7_inner"
+                         class="collapse navbar-collapse navbar-ex1-collapse">
+
+                        <form id="j_idt13" name="j_idt13" method="post"
+                              action="/Examples/dashboard.jsf" class="navbar-form navbar-right"
+                              enctype="application/x-www-form-urlencoded">
+
+
+                            <div class="form-group">
+                                <div id="j_idt13:j_idt15" class="form-group "></div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+
+            <div id="j_idt17" class="container-fluid">
+                <div id="j_idt18" class="row">
+                    <div id="j_idt19" style="background-color: #222222"
+                         class="sidebar col-md-2 col-sm-3 ">
+                        <ul id="j_idt20" class="nav nav-list ">
+                            <li id="j_idt30" class="dropdown-header" role="presentation"><b:navLink
+                                    href="TelaInicial.xhtml" icon="home" icon-size="4x">
+                            </b:navLink></li>
+
+                            <li id="j_idt21" class="dropdown-header" role="presentation">
+                                <H2>Cadastro</H2>
+                            </li>
+                            <li id="j_idt22" style="cursor: pointer;"><a
+                                    href="cadCadastrados.xhtml" role="menuitem" tabindex="0">Pessoas</a></li>
+                            <li id="j_idt23" style="cursor: pointer;"><a
+                                    href="cadImovel.xhtml" role="menuitem" tabindex="0">Imovel</a></li>
+                            <li id="j_idt24" style="cursor: pointer;"><a
+                                    href="Arealazer.xhtml" role="menuitem" tabindex="0">Area de
+                                Lazer</a></li>
+                            <li id="j_idt32" style="cursor: pointer;"><a
+                                    href="Empresa.xhtml" role="menuitem" tabindex="0">Empresa
+                                Prestadora</a></li>
+                            <li id="j_idt25" class="dropdown-header" role="presentation">
+                                <H2>Relatorios</H2>
+                            </li>
+                            <li id="j_idt27" style="cursor: pointer;"><a href="#"
+                                                                         role="menuitem" tabindex="0">Entrada/Saida</a></li>
+                            <li id="j_idt28" style="cursor: pointer;"><a href="#"
+                                                                         role="menuitem" tabindex="0">Imovel</a></li>
+                            <li id="j_idt29" style="cursor: pointer;"><a
+                                    href="cadEmpresa.xhtml" role="menuitem" tabindex="0">Area de
+                                Lazer</a></li>
+                            <li id="j_idt26" class="dropdown-header" role="presentation">
+                                <H2>Liberacoes</H2></li>
+                            <li id="j_idt31" style="cursor: pointer;"><a href="liberarVisitantes.xhtml"
+                                                                         role="menuitem" tabindex="0">Visitantes</a></li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </ui:insert>
+    </h:form>
+
+    <ui:insert name="conteudo">
+    </ui:insert>
+
+</h:body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<title>Cadastro Imovel</title>
+<ui:composition template="templateMain.xhtml">
+    <ui:define name="conteudo">
+        <div id="GRID CENTRAL"
+             class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
+            <b:row styleClass="show-grid">
+                <b:column col-xs="4" col-sm="4" col-md="4"></b:column>
+                <b:column col-xs="4" col-sm="4" col-md="4">
+                    <h1>Imovel</h1>
+                </b:column>
+            </b:row>
+            <div id="Botoes" class="row placeholders">
+                <div id="j_idt39" class="placeholder col-xs-6 col-sm-6 ">
+                    <b:button value="Cadastro" href="cadImovel.xhtml"/>
+                </div>
+                <div id="j_idt41" class="placeholder col-xs-6 col-sm-3 ">
+                    <b:button value="Listar Imoveis" href="Imovel.xhtml"/>
+                </div>
+            </div>
+            <b:form>
+                <div id="Formularioladoesquerda" class="formimputs">
+                    <b:panel id="cadastroimovelpanel" contentDisabled="false">
+                        <font style='font-weight: bold;'> Código </font>
+
+                        <h:outputText value="#{ImovelControl.imovel.id }"/>
+                        <br/>
+                        <br/>
+
+                        <b:panelGrid columns="2">
+                            <b:inputText value="#{ImovelControl.imovel.bloco }"
+                                         label="Quadra/Bloco" size="25" maxlength="5"/>
+                            <b:inputText value="#{ImovelControl.imovel.numero }"
+                                         label="Número" render-label="true" maxlength="7"/>
+                        </b:panelGrid>
+                        <b:inputText value="#{ImovelControl.imovel.tamanholote }"
+                                     label="Tamanho" mask="numeric"/>
+
+                    </b:panel>
+
+
+                    <div id="Btn Salvar" class="row placeholders">
+                        <div id="botaosalvar" class="placeholder col-xs-6 col-sm-6">
+
+                            <b:commandButton value="Salvar" update="cadastroimovelpanel"
+                                             actionListener="#{ImovelControl.confirmar}" look="success"/>
+                        </div>
+
+                        <div id="botaocancelar" class="placeholder col-xs-6 col-sm-3">
+                            <b:button look="danger" value="Cancelar"/>
+                        </div>
+                    </div>
+                </div>
+            </b:form>
+        </div>
+
+    </ui:define>
+</ui:composition>
+</html>

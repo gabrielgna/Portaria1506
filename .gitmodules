@@ -1,0 +1,3 @@
+[submodule "lib/amb-corporativo"]
+	path = lib/amb-corporativo
+	url = https://github.com/gabrielgna/libinformatica
