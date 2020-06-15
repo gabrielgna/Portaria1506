@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.ambientinformatica</groupId>
+	<artifactId>utilAmbient</artifactId>
+	<name>utilAmbient</name>
+	<version>1.0.11</version>
+	<description />
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.solutioin</groupId>
+			<artifactId>solutio-test</artifactId>
+			<version>0.0.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+	</dependencies>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal Snapshots</name>
+			<url>http://localhost/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>releases</id>
+			<name>Internal Releases</name>
+			<url>http://localhost/nexus/content/repositories/releases-publicas</url>
+		</repository>
+	</distributionManagement>
+	<scm>
+		<connection>scm:svn:http://a4t.in/svn/util/tags/utilAmbient-1.0.11</connection>
+		<developerConnection>scm:svn:http://a4t.in/svn/util/tags/utilAmbient-1.0.11</developerConnection>
+	</scm>
+</project>
