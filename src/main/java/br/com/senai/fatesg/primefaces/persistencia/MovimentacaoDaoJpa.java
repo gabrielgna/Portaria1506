@@ -18,7 +18,7 @@ public class MovimentacaoDaoJpa extends PersistenciaJpa<Movimentacao> implements
     @Override
     public String ConfirmarEstado(Long IdCadastrado) {
         List<Movimentacao> MovCadastrados = new ArrayList<Movimentacao>();
-        MovCadastrados = em.createQuery("SELECT * FROM Movimentacao  where cadastrados_id =" + IdCadastrado + "").getResultList();
+        MovCadastrados = em.createQuery("SELECT p FROM Movimentacao p where cadastrados_id =" + IdCadastrado + "").getResultList();
         int ultimo = (MovCadastrados.size()-1);
         if (ultimo < 0) return "saida";
         else {
