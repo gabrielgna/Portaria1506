@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<title>Relatorio Entrada/Saida Cadastrados</title>
+
+<ui:composition template="templateMain.xhtml">
+    <ui:define name="conteudo">
+        <div id="MEIO TELA"
+             class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
+            <b:row styleClass="show-grid">
+                <b:column col-xs="4"/>
+                <b:column col-xs="6">
+                    <h1>PORTARIA GESTION</h1>
+                </b:column>
+            </b:row>
+
+
+            <h:form id="tabela">
+                <b:dataTable value="#{MovimentacaoControl.listaMov}" var="mov">
+                    <b:dataTableColumn value="#{mov.cadastradosEntity.nome}"/>
+                    <b:dataTableColumn value="#{mov.horario}"/>
+                    <b:dataTableColumn value="#{mov.tipo}"/>
+                </b:dataTable>
+
+            </h:form>
+
+            <h:form id="btnAtt">
+            <b:row styleClass="show-grid">
+                <b:column col-xs="4"/>
+                <b:column col-xs="6">
+                    <b:commandButton value="Atualizar" update="tabela"
+                                     actionListener="#{MovimentacaoControl.listar}"/>
+                </b:column>
+            </b:row>
+            </h:form>
+
+        </div>
+
+    </ui:define>
+</ui:composition>
+
+
+</html>
