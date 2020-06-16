@@ -27,8 +27,7 @@
 					<b:dataTableColumn value="#{vis.nome}" />
 					<b:dataTableColumn value="#{vis.RG}" />
 					<b:dataTableColumn width="20%">
-						<p:commandButton value="Entrada/Saida"
-							action="#{MovimentacaoControlVisitantes.Confirmar(vis)}"
+						<p:commandButton value="Entrada/Saida" update="tabela" 	action="#{MovimentacaoControlVisitantes.Confirmar(vis)}"
 							/>
 					</b:dataTableColumn>
 				</b:dataTable>

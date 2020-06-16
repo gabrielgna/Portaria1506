@@ -1,127 +1,45 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:b="http://bootsfaces.net/ui"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<title>Cadastro Empresa</title>
 
-<h:head>
-	<title>Cadastro Empresa</title>
-	<link href="css/cadAreaLazerestilo.css" rel="stylesheet" />
-</h:head>
-<h:body style="padding-top: 60px">
+<ui:composition template="templateMain.xhtml">
+    <ui:define name="conteudo">
 
-	<nav id="j_idt7" class="navbar navbar-inverse navbar-fixed-top"
-		role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#j_idt7_inner">
-					<span class="sr-only">Toggle navigation</span><span
-						class="icon-bar"></span><span class="icon-bar"></span><span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"><span>Portaria Gestion</span></a>
-			</div>
-			<div id="j_idt7_inner"
-				class="collapse navbar-collapse navbar-ex1-collapse">
-				<ul id="j_idt8" class="nav navbar-nav navbar-right ">
-					<li id="j_idt9" style="cursor: pointer;"><a href="#"
-						role="menuitem" tabindex="0">Dashboard</a></li>
-					<li id="j_idt10" style="cursor: pointer;"><a href="#"
-						role="menuitem" tabindex="0">Settings</a></li>
-					<li id="j_idt11" style="cursor: pointer;"><a href="#"
-						role="menuitem" tabindex="0">Profile</a></li>
-					<li id="j_idt12" style="cursor: pointer;"><a href="#"
-						role="menuitem" tabindex="0">Help</a></li>
-				</ul>
-				<form id="j_idt13" name="j_idt13" method="post"
-					action="/Examples/dashboard.jsf" class="navbar-form navbar-right"
-					enctype="application/x-www-form-urlencoded">
+        <div id="GRID CENTRAL" class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
+            <b:row styleClass="show-grid">
+                <b:column col-xs="4" col-sm="4" col-md="4"></b:column>
+                <b:column col-xs="4" col-sm="4" col-md="4">
+                    <h1>Empresa</h1>
+                </b:column>
+            </b:row>
+
+            <div id="BOTOES" class="row placeholders">
+
+                <div id="BT1" class="placeholder col-xs-6 col-sm-6 ">
+                    <b:button value="Novo" href="cadEmpresa.xhtml"/>
+                </div>
+                <div id="BT2" class="placeholder col-xs-6 col-sm-3 ">
+                    <b:button value="Listar Empresas" href="Empresa.xhtml"/>
+                </div>
+            </div>
+            <b:form id="formulario">
+                <h:form>
+                    <b:dataTable value="#{EmpresaControl.empresas}" var="car">
+                        <b:dataTableColumn value="#{car.nomefantasia}"/>
+                        <b:dataTableColumn value="#{car.CNPJ}"/>
+                    </b:dataTable>
+                </h:form>
+
+            </b:form>
+
+        </div>
 
 
-					<div class="form-group">
-						<div id="j_idt13:j_idt15" class="form-group "></div>
-					</div>
+    </ui:define>
+</ui:composition>
 
-				</form>
-			</div>
-		</div>
-	</nav>
-
-
-	<div id="j_idt17" class="container-fluid">
-		<div id="j_idt18" class="row">
-			<div id="j_idt19" style="background-color: #222222"
-				class="sidebar col-md-2 col-sm-3 ">
-				<ul id="j_idt20" class="nav nav-list ">
-					<li id="j_idt30" class="dropdown-header" role="presentation"><b:navLink
-							href="TelaInicial.xhtml" icon="home" icon-size="4x">
-						</b:navLink></li>
-
-					<li id="j_idt21" class="dropdown-header" role="presentation">
-						<H2>Cadastro</H2>
-					</li>
-					<li id="j_idt22" class="active" style="cursor: pointer;"><b:dropMenu
-							value="Pessoas">
-      <b:navLink value="Morador" href="cadCadastrados.xhtml"></b:navLink>
-      <b:navLink value="Associado" href="#"></b:navLink>
-      <b:navLink value="Prestador de Serviço" href="#"></b:navLink>
-    </b:dropMenu></li>
-					<li id="j_idt23" style="cursor: pointer;"><a
-						href="cadImovel.xhtml" role="menuitem" tabindex="0">Imovel</a></li>
-					<li id="j_idt24" style="cursor: pointer;"><a
-						href="Arealazer.xhtml" role="menuitem" tabindex="0">Area de
-							Lazer</a></li>
-					<li id="j_idt25" style="cursor: pointer;"><a
-						href="cadEmpresa.xhtml" role="menuitem" tabindex="0">Empresa
-							Prestadora</a></li>
-					<li id="j_idt26" class="dropdown-header" role="presentation">
-						<H2>Relatorios</H2>
-					</li>
-					<li id="j_idt27" style="cursor: pointer;"><a href="#"
-						role="menuitem" tabindex="0">Entrada/Saida</a></li>
-					<li id="j_idt28" style="cursor: pointer;"><a href="#"
-						role="menuitem" tabindex="0">Imovel</a></li>
-					<li id="j_idt29" style="cursor: pointer;"><a href="#"
-						role="menuitem" tabindex="0">Area de Lazer</a></li>
-				</ul>
-			</div>
-
-			<div id="j_idt36"
-				class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
-				<b:row styleClass="show-grid">
-					<b:column col-xs="4" col-sm="4" col-md="4"></b:column>
-					<b:column col-xs="4" col-sm="4" col-md="4">
-						<h1>Empresa</h1>
-					</b:column>
-				</b:row>
-
-				<div id="j_idt38" class="row placeholders">
-
-					<div id="j_idt39" class="placeholder col-xs-6 col-sm-6 ">
-						<b:button value="Novo" href="cadEmpresa.xhtml" />
-					</div>
-					<div id="j_idt41" class="placeholder col-xs-6 col-sm-3 ">
-						<b:button value="Listar Empresas" href="Empresa.xhtml" />
-					</div>
-				</div>
-				<b:form id="formulario">
-					<h:form>
-						<b:dataTable value="#{EmpresaControl.empresas}" var="car">
-							<b:dataTableColumn value="#{car.nomefantasia}" />
-							<b:dataTableColumn value="#{car.CNPJ}" />
-						</b:dataTable>
-					</h:form>
-
-				</b:form>
-			</div>
-		</div>
-	</div>
-
-
-	<script type="text/javascript"
-		src="/Examples/javax.faces.resource/js/collapse.js.jsf?ln=bsf"></script>
-</h:body>
 </html>

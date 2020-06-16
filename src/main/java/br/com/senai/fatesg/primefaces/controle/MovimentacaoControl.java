@@ -23,12 +23,17 @@ public class MovimentacaoControl {
 
 
     public void Confirmar(CadastradosEntity cadastradosEntity){
+        String estado = movimentacaoDao.ConfirmarEstado(cadastradosEntity.getIdCadastrado());
+        if (estado.equalsIgnoreCase("saida")){
+            movimentacao.setTipo("entrada");
+        }else {
+            movimentacao.setTipo("saida");
+        }
         movimentacao.setCadastradosEntity(cadastradosEntity);
         movimentacao.setHorario(new Date());
         movimentacaoDao.incluir(movimentacao);
         addMessage("Sucesso");
         movimentacao = new Movimentacao();
-        //falta implementar tipo
     }
 
 

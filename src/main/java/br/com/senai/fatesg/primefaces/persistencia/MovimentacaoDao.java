@@ -5,4 +5,5 @@ import br.com.senai.fatesg.primefaces.entidade.Movimentacao;
 
 public interface MovimentacaoDao extends Persistencia<Movimentacao> {
 
+    public String ConfirmarEstado(Long IdCadastrado);
 }
