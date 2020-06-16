@@ -19,8 +19,8 @@ public class MovimentacaoDaoJpa extends PersistenciaJpa<Movimentacao> implements
     public String ConfirmarEstado(Long IdCadastrado) {
         List<Movimentacao> MovCadastrados = new ArrayList<Movimentacao>();
         MovCadastrados = em.createQuery("SELECT * FROM Movimentacao  where cadastrados_id =" + IdCadastrado + "").getResultList();
-        int ultimo = MovCadastrados.size();
-        if (ultimo <= 0) return "saida";
+        int ultimo = (MovCadastrados.size()-1);
+        if (ultimo < 0) return "saida";
         else {
             String EstadoUltimo = MovCadastrados.get(ultimo).getTipo();
             return EstadoUltimo;

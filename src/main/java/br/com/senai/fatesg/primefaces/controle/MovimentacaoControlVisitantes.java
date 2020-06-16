@@ -27,6 +27,12 @@ public class MovimentacaoControlVisitantes {
 	private VisitanteDao visitanteDao;
 
 	public void Confirmar(VisitanteEntity visitantes) {
+		String estado = movimentacaoVisitanteDao.ConfirmarEstadoVisi(visitantes.getId());
+		if (estado.equalsIgnoreCase("saida")) {
+			movimentacaoVisitante.setTipo("entrada");
+		} else {
+			movimentacaoVisitante.setTipo("saida");
+		}
 		movimentacaoVisitante.setCadastrados(visitantes.getCadastrados());
 		movimentacaoVisitante.setVisitantes(visitantes);
 		movimentacaoVisitante.setHorario(new Date());
